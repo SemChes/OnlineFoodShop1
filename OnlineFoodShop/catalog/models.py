@@ -28,3 +28,9 @@ class Products(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+    def display_id(self):
+        return f"{self.id:05}"
+
+    def discount_price(self):
+        return float(self.price) * (100 - float(self.discount)) / 100
