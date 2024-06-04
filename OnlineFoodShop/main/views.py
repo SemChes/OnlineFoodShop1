@@ -9,7 +9,6 @@ def index(request):
     context = {
         'title': 'Главная',
         'content': 'Онлайн продуктовый магазин',
-        'categories': categories
     }
 
     return render(request, 'main/index.html', context)
