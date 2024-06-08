@@ -2,8 +2,8 @@ from django.shortcuts import render
 from catalog.models import Products
 
 
-def catalog(request):
-    products = Products.objects.all()
+def catalog(request, category_slug):
+    products = Products.objects.filter(category__slug=category_slug)
 
     context = {
         'title': 'Главная',
@@ -14,9 +14,9 @@ def catalog(request):
     return render(request, 'catalog/catalog.html', context)
 
 
-def product(request, product_id):
+def product(request, product_slug):
 
-    product = Products.objects.get(id=product_id)
+    product = Products.objects.get(slug=product_slug)
 
     context = {
         'product': product
